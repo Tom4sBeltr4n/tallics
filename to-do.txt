@@ -5,5 +5,6 @@ Add credits:
     https://www.typesetit.com/# (main font author link)
 Add second-font.
 Add responsiveness.
+  Reduce width of footer--author-media
 Add accesibility.
 Add more pages
