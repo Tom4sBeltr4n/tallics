@@ -1,4 +1,9 @@
-Add credits.
+Add credits:
+  https://www.fontspace.com/vtks-rude-metal-font-f10055 (title font link)
+    https://www.fontspace.com/vtks-design (title font author link)
+  https://fonts.google.com/specimen/Road+Rage (main font link)
+    https://www.typesetit.com/# (main font author link)
 Add second-font.
 Add responsiveness.
 Add accesibility.
+Add more pages
