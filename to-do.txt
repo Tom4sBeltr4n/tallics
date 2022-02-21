@@ -1,0 +1,4 @@
+Add credits.
+Add second-font.
+Add responsiveness.
+Add accesibility.

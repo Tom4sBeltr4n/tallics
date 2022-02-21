@@ -1,0 +1,28 @@
+:root
+{
+  --golden: #fae28b;
+}
+
+body
+{
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.main--title-container
+{
+  width: 100%;
+  height: 163px;
+}
+
+.main--title
+{
+  position: relative;
+  /* left: calc(50% - 212px);
+  width: 424px;
+  height: 127px; */
+  left: calc(50% - 105px);
+  top: 100px;
+  width: 210px;
+  height: 63px;
+}
