@@ -1,0 +1,12 @@
+Interface: 
+Players will be asked to choose a colour. Then, they'll be prompted to introduce a PGN with their desired variations in either a graphical board (which will create a PGN as moves are introduced, will show the current move to allow for variations with a button and will have a submit button to finish PGN creation) or a form (they will be prompted to choose board or PGN input). The script will then parse the generated or given PGN to form all possible positions in which the player's chosen colour is expected to play (either all odd or all even moves). All these position objects will be pushed into an numerically-indexed array. Then, a random number will be created, and the object whose index coincides with it will be painted.
+
+functions:
+paint(string fenNotatedPosition) // Displays a chess position notated with FEN into the webpage. Returns undefined
+notationMove(string smithNotatedMove) // Given an appropriately notated move, it is "played" and painted. Resulting FEN is returned. Used when the opening is already input
+mouseMove(boolean mouseDown, boolean mouseUp) // Animation of a mouse move. Uses canvas. Returns undefined or smithNotatedMove.
+parsePGN(string PGN, Boolean colour)// Returns an array of FEN-notated-positions included in the PGN's playthrough where the colour is set to play.
+redactPGN(boolean boardMouseDown, boolean boardMouseUp, boolean submit) // Records moves done on the board. Will have inner functions. Said inner functions and other called functions are listed here: 
+- addVariant(string currentPGN, mouseMove())// Returns a string containing the PGN of the moves done by the player.
+- mouseMove(boardMouseDown, boardMouseDown)// See above 
+- notationMove(mouseMove(boardMouseDown, boardMouseUp))// See above
