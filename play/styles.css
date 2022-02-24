@@ -1,7 +1,7 @@
 :root
 {
   --bgcolour-1: #101409;
-  --bgcolour-2: #fae28b;
+  --bgcolour-2: #293317;
   --golden-2: #fae28b;
   --link: #23236b;
   --visited-link: #4f1e5f;
@@ -25,8 +25,25 @@ body
   background-color: #000000;
   color: #ffffff;
   /* font-family: var(--main-font); */
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
-  ;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+header
+{
+  width: 100vw;
+  height: 10vh;
+  background-color: var(--bgcolour-2);
+  position: absolute;
+}
+
+.header--title
+{
+  display: inline-block;
+  position: absolute;
+  top: calc(50% - 23px);
+  width: 156px;
+  height: 47px;
+  background-image: url('./../assets/play-header-title.png'); 
 }
 
 main

@@ -24,8 +24,7 @@ body
   background-color: #000000;
   color: #ffffff;
   /* font-family: var(--main-font); */
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
-  ;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .title-container
