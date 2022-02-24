@@ -5,15 +5,19 @@ let playerColour;
 
 function colourChosen(event)
 {
-  console.log(event.target.tagName);
   if(event.target.tagName === "P"){
-    console.log(Array.from(Array.from(event.target.parentNode.childNodes).filter(i=>i.nodeType == 1).filter(i=>i.tagName == "SPAN")[0].classList).filter(i => i == "black" || i == "white")[0]);//works
-
-    playerColour = Array.from(Array.from(event.target.parentNode.childNodes).filter(i=>i.nodeType == 1).filter(i=>i.tagName == "SPAN").classList)//.filter(i => {i == "black" || i == "white"}); // do not filter classList or childNodes entities without first converting to array
+    playerColour = Array.from(Array.from(event.target.parentNode.childNodes).filter(i=>i.nodeType == 1).filter(i=>i.tagName == "SPAN")[0].classList).filter(i => i == "black" || i == "white")[0]// do not filter classList or childNodes entities without first converting to array
   } else if(event.target.tagName === "SPAN"){
-    playerColour = Array.from(event.target.classList)//.filter(i => {i == "black" || i == "white"});
-  } else{
-    playerColour = Array.from(Array.from(event.target.childNodes).filter(i=>i.nodeType == 1).filter(i=>i.tagName == "SPAN").classList)//.filter(i => {i == "black" || i == "white"});
+    playerColour = Array.from(event.target.classList).filter(i => i == "black" || i == "white")[0]
+  } else{//button, really
+    playerColour = Array.from(Array.from(event.target.childNodes).filter(i=>i.nodeType == 1).filter(i=>i.tagName == "SPAN")[0].classList).filter(i => i == "black" || i == "white")[0]
   }
-  console.log(playerColour);
+  modalAskRepertoire()
 };
+
+function modalAskRepertoire()
+{
+  console.log("Yay!");
+  console.log("Event info: " + event);
+  // event
+}
