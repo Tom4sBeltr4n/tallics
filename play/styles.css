@@ -2,7 +2,7 @@
 {
   --bgcolour-1: #101409;
   --bgcolour-2: #293317cc;
-  --golden-2: #fae28b;
+  --golden: #fae28b;
   --link: #23236b;
   --visited-link: #4f1e5f;
   --main-font: 'Road Rage', cursive;
@@ -53,7 +53,17 @@ header
 main
 {
   width: 100vw;
-  height: 80vh;
+  /* height: 8000px; */
   font-size: 1.6rem;
   background-color: #000000;
+}
+
+.modal
+{
+  position: fixed;
+  top: 20vh;
+  left: 5vw;
+  height: 70vw;
+  width: 70vw;
+  background-color: var(--bgcolour-2);
 }
