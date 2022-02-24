@@ -4,6 +4,8 @@
   --golden: #fae28b;
   --link: #23236b;
   --visited-link: #4f1e5f;
+  --font-family-1: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  --font-family-2: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 *
@@ -22,7 +24,7 @@ body
 {
   background-color: #000000;
   color: #ffffff;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: var(--font-family-1)
 }
 
 .title-container
@@ -91,7 +93,7 @@ footer
   padding-top: 2vh;
   font-size: 1.2rem;
   font-weight: 400;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: var(--font-family-2);
   background-color: var(--bgcolour-1);
 }
 
