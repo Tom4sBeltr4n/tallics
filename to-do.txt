@@ -2,8 +2,6 @@ Finish basic project
 Add credits:
   https://www.fontspace.com/vtks-rude-metal-font-f10055 (title font link)
     https://www.fontspace.com/vtks-design (title font author link)
-  https://fonts.google.com/specimen/Road+Rage (main font link)
-    https://www.typesetit.com/# (main font author link)
 Add site-usage rules (TOS)
 Add responsiveness.
   Reduce width of footer--author-media

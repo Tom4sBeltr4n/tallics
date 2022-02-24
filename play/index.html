@@ -18,12 +18,22 @@
       <h2></h2>
       <div class="board"></div>
     </main>
-    <aside class="modal">
-      <h1 class="modal--title">Welcome</h1>
-      <h2 class="modal--subtitle">Please choose a colour:</h2>
-      <div class="modal--choose-colour"></div>
-      <div class="modal--choose-colour"></div>
-    </aside>
+    <div class="modal">
+      <aside class="modal--content">
+        <h1 class="modal--title">Welcome!</h1>
+        <div class="modal--main">
+          <h2 class="modal--subtitle">Please choose a colour:</h2>
+          <button class="modal--choose-colour">
+            <span class="modal--colour-sample"></span>
+            <p class="modal--colour-name">Black</p>
+          </button>
+          <button class="modal--choose-colour">
+            <span class="modal--colour-sample"></span>
+            <p class="modal--colour-name">White</p>
+          </button>
+        </div>
+      </aside>
+    </div>
     <footer></footer>
     <script src="./script.js"></script>
   </body>

@@ -4,7 +4,6 @@
   --golden: #fae28b;
   --link: #23236b;
   --visited-link: #4f1e5f;
-  --main-font: 'Road Rage', cursive;
 }
 
 *
@@ -23,7 +22,6 @@ body
 {
   background-color: #000000;
   color: #ffffff;
-  /* font-family: var(--main-font); */
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
