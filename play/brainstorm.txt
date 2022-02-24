@@ -10,3 +10,8 @@ redactPGN(boolean boardMouseDown, boolean boardMouseUp, boolean submit) // Recor
 - addVariant(string currentPGN, mouseMove())// Returns a string containing the PGN of the moves done by the player.
 - mouseMove(boardMouseDown, boardMouseDown)// See above 
 - notationMove(mouseMove(boardMouseDown, boardMouseUp))// See above
+
+UI: 
+  First interactions will be through a modal. This includes colour choice, PGN/board. Afterwards, the modal will vanish and a board will be shown at the centre of the screen, rendering randomly chosen positions from the FENs returned in the parsePGN function.
+  Background will default to be black and gold, as in the main menu. The board may look cream white (#dabb8d) + chocolate (#c2814b) and pieces will probably copy the lichess design because I'm no good drawer.
+  A header and a footer may be added

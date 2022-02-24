@@ -9,4 +9,5 @@ Add responsiveness.
   Reduce width of footer--author-media
 Add accesibility.
     Make sure colour means nothing and no slight contrasts are used
+Add theme choice
 Add more pages

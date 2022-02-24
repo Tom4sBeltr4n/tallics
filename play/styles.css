@@ -1,0 +1,36 @@
+:root
+{
+  --bgcolour-1: #101409;
+  --bgcolour-2: #fae28b;
+  --golden-2: #fae28b;
+  --link: #23236b;
+  --visited-link: #4f1e5f;
+  --main-font: 'Road Rage', cursive;
+}
+
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html
+{
+  font-size: 62.5%;
+}
+
+body
+{
+  background-color: #000000;
+  color: #ffffff;
+  /* font-family: var(--main-font); */
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+  ;
+}
+
+main
+{
+  width: 100vw;
+font-size: 1.6rem;
+}
