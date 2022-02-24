@@ -1,7 +1,7 @@
 :root
 {
   --bgcolour-1: #101409;
-  --bgcolour-2: #293317;
+  --bgcolour-2: #293317cc;
   --golden-2: #fae28b;
   --link: #23236b;
   --visited-link: #4f1e5f;
@@ -40,14 +40,20 @@ header
 {
   display: inline-block;
   position: absolute;
-  top: calc(50% - 23px);
-  width: 156px;
-  height: 47px;
-  background-image: url('./../assets/play-header-title.png'); 
+  top: 5px;
+  left: 10px;
+  width: 146px;
+  height: 38px;
+  background-image: url('./../assets/play-header-title.png');  
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 main
 {
   width: 100vw;
-font-size: 1.6rem;
+  height: 80vh;
+  font-size: 1.6rem;
+  background-color: #000000;
 }
