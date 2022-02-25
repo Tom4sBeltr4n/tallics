@@ -1,14 +1,13 @@
 let colourChoiceButtons = document.querySelectorAll(".modal--choose-colour")
 colourChoiceButtons.forEach(i => {i.addEventListener("click", event=> colourChosen(event));})
-let playerColour;
+let playerColour, colourChoiceEventId;
 
 function colourChosen(event)
 {
-  click = event;
-  eventTargetId = 0; //tracking which element was clicked
+  event = {targetId: undefined,target: event.target}
   // do not filter classList or childNodes entities without first converting to array. Also remember to parse every argument given to Array.from()
   if(event.target.tagName === "P"){
-    eventTargetId = 1;
+    event.targetId++;
     playerColour = Array.from(Array.from(event.target.parentNode.childNodes).filter(i=>i.nodeType == 1).filter(i=>i.tagName == "SPAN")[0].classList).filter(i => i == "black" || i == "white")[0]
     /*explanation: 
     we take the event: event
@@ -27,15 +26,27 @@ function colourChosen(event)
     Of course many of this could have been done removing filters and using indexes by parsing through console. But I used a general approach in case I decide to change design or enter a greater project
     */
   } else if(event.target.tagName === "SPAN"){
-    eventTargetId = 2;
+    event.targetId++;
     playerColour = Array.from(event.target.classList).filter(i => i == "black" || i == "white")[0]
   } else{//button, really
     playerColour = Array.from(Array.from(event.target.childNodes).filter(i=>i.nodeType == 1).filter(i=>i.tagName == "SPAN")[0].classList).filter(i => i == "black" || i == "white")[0]
+    //remember that JS does NOT have dynamic scope
   }
-  modalAskRepertoire()
+  modalAskRepertoire(event)
 };
 
-function modalAskRepertoire()
+function modalAskRepertoire(event)
 {
-  console.log(click.target.parentNode)
+  let main;
+  if(event.targetId)// removing everything from
+  {
+    main = event.target.parentNode.parentNode.parentNode;
+    while(main.firstChild){main.removeChild(main.firstChild)};
+    console.log(main);
+  } else {
+    main = event.target.parentNode.parentNode;
+    while(main.firstChild){main.removeChild(main.firstChild)};
+    console.log(main);
+  };
+  // main.appendChild
 }
