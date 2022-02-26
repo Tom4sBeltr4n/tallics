@@ -40,13 +40,13 @@ function modalAskRepertoire(event)
   let main;
   if(event.targetId)// removing everything from
   {
-    main = event.target.parentNode.parentNode.parentNode;
-    while(main.firstChild){main.removeChild(main.firstChild)};
-    console.log(main);
+    main = event.target.parentNode.parentNode.parentNode.parentNode;
+    while(Array.from(main.childNodes)[2]){main.removeChild(Array.from(main.childNodes)[2])};
   } else {
-    main = event.target.parentNode.parentNode;
-    while(main.firstChild){main.removeChild(main.firstChild)};
-    console.log(main);
+    main = event.target.parentNode.parentNode.parentNode;
+    while(Array.from(main.childNodes)[2]){main.removeChild(Array.from(main.childNodes)[2])};
   };
-  // main.appendChild
+  document.querySelector(".modal--subtitle").style.setProperty("text-align")
+  document.querySelector(".modal--subtitle").textContent = "Please insert a PGN with your studied openings and variations";
+  document.createElement("div.")
 }
