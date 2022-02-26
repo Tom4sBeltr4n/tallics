@@ -37,16 +37,24 @@ function colourChosen(event)
 
 function modalAskRepertoire(event)
 {
-  let main;
+  let container;
   if(event.targetId)// removing everything from
   {
-    main = event.target.parentNode.parentNode.parentNode.parentNode;
-    while(Array.from(main.childNodes)[2]){main.removeChild(Array.from(main.childNodes)[2])};
+    container = event.target.parentNode.parentNode.parentNode.parentNode;
+    console.log(container);
+    while(Array.from(container.childNodes)[2]){container.removeChild(Array.from(container.childNodes)[2])};
   } else {
-    main = event.target.parentNode.parentNode.parentNode;
-    while(Array.from(main.childNodes)[2]){main.removeChild(Array.from(main.childNodes)[2])};
+    container = event.target.parentNode.parentNode;
+    console.log(container);
+    while(Array.from(container.childNodes)[2]){container.removeChild(Array.from(container.childNodes)[2])};
   };
-  document.querySelector(".modal--subtitle").style.setProperty("text-align")
+  document.querySelector(".modal--main").style.setProperty("padding-top", "10%");
+  document.querySelector(".modal--subtitle").style.setProperty("text-align", "justify");
+  document.querySelector(".modal--subtitle").style.setProperty("text-align", "justify");
+  document.querySelector(".modal--subtitle").style.setProperty("font-size", "1.5rem");
   document.querySelector(".modal--subtitle").textContent = "Please insert a PGN with your studied openings and variations";
-  document.createElement("div.")
+  let pgnInput = document.createElement("input");
+  pgnInput.setAttribute("class","modal--pgn-input");pgnInput.setAttribute("type","text");pgnInput.setAttribute("placeholder","Insert PGN here");
+  console.log(pgnInput);
+  container.append(pgnInput)
 }

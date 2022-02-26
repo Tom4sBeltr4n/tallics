@@ -4,6 +4,7 @@
   --bgcolour-2: #293317cc;
   --border-colour: #2c0f35;
   --golden: #fae28b;
+  --gray: #222222;
   --link: #23236b;
   --visited-link: #4f1e5f;
   --cream-white: #dabb8d;
@@ -107,6 +108,7 @@ main
   flex-shrink: 1;
   width: 100%;
   height: 30px;
+  padding: 0 5%;
   text-align: center;
   font-size: 1.6rem;
   color: var(--cream-white);
@@ -162,4 +164,24 @@ main
 {
   font-family: var(--font-family-1);
   color: #DDDDDD;
+}
+
+.modal--pgn-input
+{
+  display: inline-block;
+  position: absolute;
+  top: 45%;
+  left: 6.7%;
+  width: 80%;
+  height: 20px;
+  border-width: 1px;
+  color: #ffffff;
+  background-color: var(--gray);
+  border-color: #383938; 
+  border-style: solid;
+}
+
+.modal--pgn-input::placeholder
+{
+  color: #dddddd;
 }

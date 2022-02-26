@@ -1,4 +1,8 @@
 Finish basic project
+  Add submit button to the input 
+  Add PGN-recording board
+  (...)
+Study changing the font
 Add credits:
   https://www.fontspace.com/vtks-rude-metal-font-f10055 (title font link)
     https://www.fontspace.com/vtks-design (title font author link)
