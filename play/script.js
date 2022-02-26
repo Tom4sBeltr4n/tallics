@@ -55,6 +55,10 @@ function modalAskRepertoire(event)
   document.querySelector(".modal--subtitle").textContent = "Please insert a PGN with your studied openings and variations";
   let pgnInput = document.createElement("input");
   pgnInput.setAttribute("class","modal--pgn-input");pgnInput.setAttribute("type","text");pgnInput.setAttribute("placeholder","Insert PGN here");
-  console.log(pgnInput);
-  container.append(pgnInput)
+  let board = document.createElement("table");
+  board.setAttribute("class","modal--board");
+  container.append(pgnInput);
+  container.append(board);
+  let row = [];
+  for(i = 0; i < 8; i++){row.push(document.createElement("tr")); row[i].setAttribute("class", "board--row");board.append(row[i])}
 }

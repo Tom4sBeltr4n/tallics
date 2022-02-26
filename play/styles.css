@@ -9,6 +9,7 @@
   --visited-link: #4f1e5f;
   --cream-white: #dabb8d;
   --chocolate: #482f1b;
+  --dark-chocolate: #312013;
   --font-family-1: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   --font-family-2: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -184,4 +185,22 @@ main
 .modal--pgn-input::placeholder
 {
   color: #dddddd;
+}
+
+.modal--board
+{
+  position: absolute;
+  top: 53%;
+  width: 44vw;
+  height: 44vw;
+  margin: 0 auto;
+  border-width: 1px;
+  border-color: var(--dark-chocolate);
+  border-style: solid;
+}
+
+.board--row
+{
+  width: 100%;
+  height: 12.5%;
 }

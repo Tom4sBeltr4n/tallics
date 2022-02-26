@@ -1,6 +1,7 @@
 Finish basic project
   Add submit button to the input 
   Add PGN-recording board
+  Remove all the position properties
   (...)
 Study changing the font
 Add credits:
