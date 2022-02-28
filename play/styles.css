@@ -201,6 +201,25 @@ main
 
 .board--row
 {
+  display: flex;
+  flex-direction: row;
   width: 100%;
-  height: 12.5%;
+  height: calc(44vw * 0.125);
+}
+
+.board--square
+{
+  width: 12.5%;
+  height: 100%;
+  background-color: var(--cream-white);
+}
+
+.board--row:nth-of-type(odd) .board--square:nth-of-type(even)
+{
+  background-color: var(--chocolate);
+}
+
+.board--row:nth-of-type(even) .board--square:nth-of-type(odd)
+{
+  background-color: var(--chocolate);
 }

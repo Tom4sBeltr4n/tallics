@@ -60,5 +60,7 @@ function modalAskRepertoire(event)
   container.append(pgnInput);
   container.append(board);
   let row = [];
-  for(i = 0; i < 8; i++){row.push(document.createElement("tr")); row[i].setAttribute("class", "board--row");board.append(row[i])}
+  let square = [];
+  for(let i = 0; i < 8; i++){row.push(document.createElement("tr")); row[i].setAttribute("class", "board--row");board.append(row[i])};
+  for(i in row){for(let j = 0; j < 8; j++){square[j] = []; square[j].push(document.createElement("td")); square[j][square[j].length-1].setAttribute("class", "board--square");row[i].append(square[j][square[j].length -1])}}
 }
