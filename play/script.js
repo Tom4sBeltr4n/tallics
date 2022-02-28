@@ -2,6 +2,15 @@ let colourChoiceButtons = document.querySelectorAll(".modal--choose-colour")
 colourChoiceButtons.forEach(i => {i.addEventListener("click", event=> colourChosen(event));})
 let playerColour, colourChoiceEventId;
 
+class rowObject
+{
+  constructor(elementConstructorArgument, squaresConstructorArgument)
+  {
+    this.element = elementConstructorArgument;
+    this.squares = squaresConstructorArgument; 
+  };
+};
+
 function colourChosen(event)
 {
   event = {targetId: undefined,target: event.target}
@@ -35,9 +44,25 @@ function colourChosen(event)
   modalAskRepertoire(event)
 };
 
+function addPieces(boardPieceAdder)
+{
+  for(i in boardPieceAdder)
+  {
+    for(j in boardPieceAdder[i])
+    {
+      //  board[i].square
+    }
+  }
+}
+
 function modalAskRepertoire(event)
 {
   let container;
+  let pgnInput;
+  let board;
+  let rowAppender = [];
+  let squaresInRowAppender = [];
+  let rowArray = [];
   if(event.targetId)// removing everything from
   {
     container = event.target.parentNode.parentNode.parentNode.parentNode;
@@ -53,14 +78,23 @@ function modalAskRepertoire(event)
   document.querySelector(".modal--subtitle").style.setProperty("text-align", "justify");
   document.querySelector(".modal--subtitle").style.setProperty("font-size", "1.5rem");
   document.querySelector(".modal--subtitle").textContent = "Please insert a PGN with your studied openings and variations";
-  let pgnInput = document.createElement("input");
+  pgnInput = document.createElement("input");
   pgnInput.setAttribute("class","modal--pgn-input");pgnInput.setAttribute("type","text");pgnInput.setAttribute("placeholder","Insert PGN here");
-  let board = document.createElement("table");
+  board = document.createElement("table");
   board.setAttribute("class","modal--board");
   container.append(pgnInput);
   container.append(board);
-  let row = [];
-  let square = [];
-  for(let i = 0; i < 8; i++){row.push(document.createElement("tr")); row[i].setAttribute("class", "board--row");board.append(row[i])};
-  for(i in row){for(let j = 0; j < 8; j++){square[j] = []; square[j].push(document.createElement("td")); square[j][square[j].length-1].setAttribute("class", "board--square");row[i].append(square[j][square[j].length -1])}}
+  for(let i = 0; i < 8; i++){rowAppender.push(document.createElement("tr")); rowAppender[i].setAttribute("class", "board--row");board.append(rowAppender[i])};
+  for(i in rowAppender)
+  {
+    for(let j = 0; j < 8; j++)
+    {
+      squaresInRowAppender[j] = [];
+      squaresInRowAppender[j].push(document.createElement("td"));
+      squaresInRowAppender[j][squaresInRowAppender[j].length-1].setAttribute("class", "board--square");
+      rowAppender[i].append(squaresInRowAppender[j][squaresInRowAppender[j].length-1])
+    }
+  };
+  rowArray.push(new rowObject(rowAppender[0],square[0]));
+  addPieces(rowArray);
 }
