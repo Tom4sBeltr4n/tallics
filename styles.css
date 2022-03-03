@@ -83,14 +83,18 @@ main
   text-decoration: none;
 }
 
+.menu--link:hover
+{
+  font-size: 2.3rem;
+}
+
 footer
 {
   position: absolute;
   bottom:0px;
   width: 100%;
-  height: 70px;
   margin-top: 5vh;
-  padding-top: 2vh;
+  padding: 2vh 0 2vh;
   font-size: 1.2rem;
   font-weight: 400;
   font-family: var(--font-family-2);
@@ -121,12 +125,12 @@ footer
   display: inline;
 }
 
-.author-media--link:link
+footer a:link
 {
   color: var(--link);
 }
 
-.author-media--link:visited
+footer a:visited
 {
   color: var(--visited-link);
 }
