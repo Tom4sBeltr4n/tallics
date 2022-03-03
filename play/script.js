@@ -1,18 +1,9 @@
 let colourChoiceButtons = document.querySelectorAll(".modal--choose-colour")
 colourChoiceButtons.forEach(i => {i.addEventListener("click", event=> colourChosen(event));})
 let playerColour, colourChoiceEventId;
-
-class rowObject
-{
-  constructor(elementConstructorArgument, squaresConstructorArgument)
-  {
-    this.element = elementConstructorArgument;
-    this.squares = squaresConstructorArgument; 
-  };
-};
-
 function colourChosen(event)
 {
+  //remember that JS does NOT have dynamic scope
   event = {targetId: undefined,target: event.target}
   // do not filter classList or childNodes entities without first converting to array. Also remember to parse every argument given to Array.from()
   if(event.target.tagName === "P"){
@@ -39,62 +30,76 @@ function colourChosen(event)
     playerColour = Array.from(event.target.classList).filter(i => i == "black" || i == "white")[0]
   } else{//button, really
     playerColour = Array.from(Array.from(event.target.childNodes).filter(i=>i.nodeType == 1).filter(i=>i.tagName == "SPAN")[0].classList).filter(i => i == "black" || i == "white")[0]
-    //remember that JS does NOT have dynamic scope
   }
   modalAskRepertoire(event)
 };
-
 function addPieces(boardPieceAdder)
 {
-  for(i in boardPieceAdder)
-  {
-    for(j in boardPieceAdder[i])
-    {
-      //  board[i].square
-    }
-  }
+  // for(i in boardPieceAdder)
+  // {
+  //   for(j in boardPieceAdder[i])
+  //   {
+  //     //  board[i].square
+  //   }
+  // }
 }
-
 function modalAskRepertoire(event)
-{
+{//variable definitions
+  let board = {};
   let container;
+  class boardElement
+  {
+    constructor(e, i, n, d)
+    {
+      this.htmlElement = e;
+      this.intendedChildren = i; 
+      this.name = n;
+      this.id = d;//board coordinates
+    };
+  };
   let pgnInput;
-  let board;
-  let rowAppender = [];
-  let squaresInRowAppender = [];
-  let rowArray = [];
+  function appender(elementToAppend)
+  {
+    container.append(elementToAppend.htmlElement);
+    elementToAppend.htmlElement.intendedChildren.forEach((i)=>{elementToAppend.append()})
+    // elementToAppend.htmlElement.append(
+  }
+  
+  //tasks
   if(event.targetId)// removing everything from
   {
     container = event.target.parentNode.parentNode.parentNode.parentNode;
-    console.log(container);
     while(Array.from(container.childNodes)[2]){container.removeChild(Array.from(container.childNodes)[2])};
   } else {
     container = event.target.parentNode.parentNode;
-    console.log(container);
     while(Array.from(container.childNodes)[2]){container.removeChild(Array.from(container.childNodes)[2])};
   };
   document.querySelector(".modal--main").style.setProperty("padding-top", "10%");
-  document.querySelector(".modal--subtitle").style.setProperty("text-align", "justify");
+  document.querySelector(".modal--subtitle").style.setProperty("text-align", "justify");// Subtitle settings 
   document.querySelector(".modal--subtitle").style.setProperty("text-align", "justify");
   document.querySelector(".modal--subtitle").style.setProperty("font-size", "1.5rem");
   document.querySelector(".modal--subtitle").textContent = "Please insert a PGN with your studied openings and variations";
-  pgnInput = document.createElement("input");
+  pgnInput = document.createElement("input"); // Adding an input to help the player enter their prep
   pgnInput.setAttribute("class","modal--pgn-input");pgnInput.setAttribute("type","text");pgnInput.setAttribute("placeholder","Insert PGN here");
-  board = document.createElement("table");
-  board.setAttribute("class","modal--board");
   container.append(pgnInput);
-  container.append(board);
-  for(let i = 0; i < 8; i++){rowAppender.push(document.createElement("tr")); rowAppender[i].setAttribute("class", "board--row");board.append(rowAppender[i])};
-  for(i in rowAppender)
-  {
-    for(let j = 0; j < 8; j++)
-    {
-      squaresInRowAppender[j] = [];
-      squaresInRowAppender[j].push(document.createElement("td"));
-      squaresInRowAppender[j][squaresInRowAppender[j].length-1].setAttribute("class", "board--square");
-      rowAppender[i].append(squaresInRowAppender[j][squaresInRowAppender[j].length-1])
-    }
-  };
-  rowArray.push(new rowObject(rowAppender[0],square[0]));
-  addPieces(rowArray);
+  board.htmlElement = document.createElement("table");// Creating board element
+  board.htmlElement.setAttribute("class","modal--board");
+  board.intendedChildren = [];//a stands for abbreviation
+  for(let i = 0; i < 8; i++){let a = board.intendedChildren; a.push(new boardElement(document.createElement("tr"),[], "row",i));a[board.intendedChildren.length - 1].htmlElement.setAttribute("class", "board--row")};//a stands for abbreviation
+  for(let i = 0; i < 8; i++){for(let j = 0; j < 8; j++){let a = board.intendedChildren[i].intendedChildren; a.push(new boardElement(document.createElement("td"),null, "square", j)); a[a.length -1].htmlElement.setAttribute("class", "board--square")}};
+  appender(board);
+  // container.append(board);
+  // for(let i = 0; i < 8; i++){rowAppender.push(document.createElement("tr")); rowAppender[i].setAttribute("class", "board--row");board.append(rowAppender[i])};
+  // for(i in rowAppender)
+  // {
+    // for(let j = 0; j < 8; j++)
+    // {
+      // squaresInRowAppender[j] = [];
+      // squaresInRowAppender[j].push(document.createElement("td"));
+      // squaresInRowAppender[j][squaresInRowAppender[j].length-1].setAttribute("class", "board--square");
+      // rowAppender[i].append(squaresInRowAppender[j][squaresInRowAppender[j].length-1])
+    // }
+  // };
+  // rowArray.push(new rowObject(rowAppender[0],square[0]));
+  // addPieces(rowArray);
 }
