@@ -45,6 +45,11 @@ function addPieces(boardPieceAdder)
 }
 function modalAskRepertoire(event)
 {//variable definitions
+  function appender(elementToAppend)
+  {
+    container.append(elementToAppend.htmlElement);
+    elementToAppend.intendedChildren.forEach((i)=>{elementToAppend.htmlElement.append(i.htmlElement)})
+  }
   let board = {};
   let container;
   class boardElement
@@ -58,23 +63,20 @@ function modalAskRepertoire(event)
     };
   };
   let pgnInput;
-  function appender(elementToAppend)
-  {
-    container.append(elementToAppend.htmlElement);
-    elementToAppend.htmlElement.intendedChildren.forEach((i)=>{elementToAppend.append()})
-    // elementToAppend.htmlElement.append(
-  }
   
   //tasks
-  if(event.targetId)// removing everything from
+  if(event.targetId)// removing everything from main--container
   {
     container = event.target.parentNode.parentNode.parentNode.parentNode;
+    console.log(container, event.target);
     while(Array.from(container.childNodes)[2]){container.removeChild(Array.from(container.childNodes)[2])};
   } else {
-    container = event.target.parentNode.parentNode;
+    container = event.target.parentNode;
+    console.log(container, event.target);
     while(Array.from(container.childNodes)[2]){container.removeChild(Array.from(container.childNodes)[2])};
   };
   document.querySelector(".modal--main").style.setProperty("padding-top", "10%");
+  document.querySelector(".modal--container").style.setProperty("flex-direction","column");
   document.querySelector(".modal--subtitle").style.setProperty("text-align", "justify");// Subtitle settings 
   document.querySelector(".modal--subtitle").style.setProperty("text-align", "justify");
   document.querySelector(".modal--subtitle").style.setProperty("font-size", "1.5rem");
@@ -82,11 +84,12 @@ function modalAskRepertoire(event)
   pgnInput = document.createElement("input"); // Adding an input to help the player enter their prep
   pgnInput.setAttribute("class","modal--pgn-input");pgnInput.setAttribute("type","text");pgnInput.setAttribute("placeholder","Insert PGN here");
   container.append(pgnInput);
-  board.htmlElement = document.createElement("table");// Creating board element
+  board = new boardElement(document.createElement("table"),[],"board","");  
   board.htmlElement.setAttribute("class","modal--board");
-  board.intendedChildren = [];//a stands for abbreviation
+  //a stands for abbreviation
   for(let i = 0; i < 8; i++){let a = board.intendedChildren; a.push(new boardElement(document.createElement("tr"),[], "row",i));a[board.intendedChildren.length - 1].htmlElement.setAttribute("class", "board--row")};//a stands for abbreviation
   for(let i = 0; i < 8; i++){for(let j = 0; j < 8; j++){let a = board.intendedChildren[i].intendedChildren; a.push(new boardElement(document.createElement("td"),null, "square", j)); a[a.length -1].htmlElement.setAttribute("class", "board--square")}};
+  console.log(board);
   appender(board);
   // container.append(board);
   // for(let i = 0; i < 8; i++){rowAppender.push(document.createElement("tr")); rowAppender[i].setAttribute("class", "board--row");board.append(rowAppender[i])};
