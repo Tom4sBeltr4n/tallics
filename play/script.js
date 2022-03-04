@@ -35,13 +35,7 @@ function colourChosen(event)
 };
 function addPieces(boardPieceAdder)
 {
-  // for(i in boardPieceAdder)
-  // {
-  //   for(j in boardPieceAdder[i])
-  //   {
-  //     //  board[i].square
-  //   }
-  // }
+  // 
 }
 function modalAskRepertoire(event)
 {//variable definitions
@@ -97,21 +91,7 @@ function modalAskRepertoire(event)
   document.querySelector(".modal--board").style.setProperty("height", parseInt(getComputedStyle(document.querySelector(".modal--content")).width) * 0.62+"px");
   //a stands for abbreviation
   for(let i = 0; i < 8; i++){let a = board.intendedChildren; a.push(new boardElement(document.createElement("tr"),[], "row",i));a[board.intendedChildren.length - 1].htmlElement.setAttribute("class", "board--row")};//a stands for abbreviation
-  for(let i = 0; i < 8; i++){for(let j = 0; j < 8; j++){let a = board.intendedChildren[i].intendedChildren; a.push(new boardElement(document.createElement("td"),null, "square", j)); a[a.length -1].htmlElement.setAttribute("class", "board--square")}};
+  for(let i = 0; i < 8; i++){for(let j = 0; j < 8; j++){let a = board.intendedChildren[i].intendedChildren; a.push(new boardElement(document.createElement("td"),null, "square", i.toString()+j.toString())); a[a.length -1].htmlElement.setAttribute("class", "board--square")}};
   console.log(board);
   appender(board);
-  // container.append(board);
-  // for(let i = 0; i < 8; i++){rowAppender.push(document.createElement("tr")); rowAppender[i].setAttribute("class", "board--row");board.append(rowAppender[i])};
-  // for(i in rowAppender)
-  // {
-    // for(let j = 0; j < 8; j++)
-    // {
-      // squaresInRowAppender[j] = [];
-      // squaresInRowAppender[j].push(document.createElement("td"));
-      // squaresInRowAppender[j][squaresInRowAppender[j].length-1].setAttribute("class", "board--square");
-      // rowAppender[i].append(squaresInRowAppender[j][squaresInRowAppender[j].length-1])
-    // }
-  // };
-  // rowArray.push(new rowObject(rowAppender[0],square[0]));
-  // addPieces(rowArray);
 }
