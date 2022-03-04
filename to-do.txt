@@ -1,4 +1,7 @@
 Finish basic project
+  Finish positioning of modal and other elements in play
+  Add padding to the footer of the main
+  Render board
   Add submit button to the input 
   Add PGN-recording board
   Remove all the position properties

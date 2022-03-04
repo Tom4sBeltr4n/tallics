@@ -4,7 +4,7 @@ let playerColour, colourChoiceEventId;
 function colourChosen(event)
 {
   //remember that JS does NOT have dynamic scope
-  event = {targetId: undefined,target: event.target}
+  event = {targetId: 0,target: event.target}
   // do not filter classList or childNodes entities without first converting to array. Also remember to parse every argument given to Array.from()
   if(event.target.tagName === "P"){
     event.targetId++;
@@ -47,7 +47,6 @@ function modalAskRepertoire(event)
 {//variable definitions
   function appender(elementToAppend)
   {
-    container.append(elementToAppend.htmlElement);
     elementToAppend.intendedChildren.forEach((i)=>{elementToAppend.htmlElement.append(i.htmlElement)})
   }
   let board = {};
@@ -63,29 +62,36 @@ function modalAskRepertoire(event)
     };
   };
   let pgnInput;
+  let subtitleA;
   
   //tasks
   if(event.targetId)// removing everything from main--container
   {
-    container = event.target.parentNode.parentNode.parentNode.parentNode;
-    console.log(container, event.target);
+    container = event.target.parentNode.parentNode;
     while(Array.from(container.childNodes)[2]){container.removeChild(Array.from(container.childNodes)[2])};
   } else {
     container = event.target.parentNode;
-    console.log(container, event.target);
     while(Array.from(container.childNodes)[2]){container.removeChild(Array.from(container.childNodes)[2])};
   };
   document.querySelector(".modal--main").style.setProperty("padding-top", "10%");
   document.querySelector(".modal--container").style.setProperty("flex-direction","column");
+  subtitleA = document.createElement("a"); //adding a link to the subtitle
+  subtitleA.setAttribute("href", "https://en.wikipedia.org/wiki/Chess_notation");
+  subtitleA.textContent = "Smith";
   document.querySelector(".modal--subtitle").style.setProperty("text-align", "justify");// Subtitle settings 
   document.querySelector(".modal--subtitle").style.setProperty("text-align", "justify");
   document.querySelector(".modal--subtitle").style.setProperty("font-size", "1.5rem");
-  document.querySelector(".modal--subtitle").textContent = "Please insert a PGN with your studied openings and variations";
+  document.querySelector(".modal--subtitle").removeChild(Array.from(document.querySelector(".modal--subtitle").childNodes)[0])
+  document.querySelector(".modal--subtitle").append('Please insert a PGN with your studied openings and variations, play them on the board with your mouse or by inserting them as ', subtitleA, ' notated moves');
   pgnInput = document.createElement("input"); // Adding an input to help the player enter their prep
   pgnInput.setAttribute("class","modal--pgn-input");pgnInput.setAttribute("type","text");pgnInput.setAttribute("placeholder","Insert PGN here");
   container.append(pgnInput);
-  board = new boardElement(document.createElement("table"),[],"board","");  
+  board = new boardElement(document.createElement("table"),[],"board","");
   board.htmlElement.setAttribute("class","modal--board");
+  container.append(board.htmlElement);
+  if(document.querySelector(".modal--content").scrollHeight !== document.querySelector(".modal--content").clientHeight){console.log("overflows")} else{console.log("no overflow")}
+  document.querySelector(".modal--board").style.setProperty("width", parseInt(getComputedStyle(document.querySelector(".modal--content")).width) * 0.62+"px");
+  document.querySelector(".modal--board").style.setProperty("height", parseInt(getComputedStyle(document.querySelector(".modal--content")).width) * 0.62+"px");
   //a stands for abbreviation
   for(let i = 0; i < 8; i++){let a = board.intendedChildren; a.push(new boardElement(document.createElement("tr"),[], "row",i));a[board.intendedChildren.length - 1].htmlElement.setAttribute("class", "board--row")};//a stands for abbreviation
   for(let i = 0; i < 8; i++){for(let j = 0; j < 8; j++){let a = board.intendedChildren[i].intendedChildren; a.push(new boardElement(document.createElement("td"),null, "square", j)); a[a.length -1].htmlElement.setAttribute("class", "board--square")}};
