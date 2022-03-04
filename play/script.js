@@ -47,7 +47,11 @@ function modalAskRepertoire(event)
 {//variable definitions
   function appender(elementToAppend)
   {
-    elementToAppend.intendedChildren.forEach((i)=>{elementToAppend.htmlElement.append(i.htmlElement)})
+    elementToAppend.intendedChildren.forEach((i)=>{elementToAppend.htmlElement.append(i.htmlElement)});
+    for(let i = 0; i < 8; i++)
+    {
+      elementToAppend.intendedChildren[i].intendedChildren.forEach((j)=>{elementToAppend.intendedChildren[i].htmlElement.append(j.htmlElement)})      
+    };
   }
   let board = {};
   let container;
@@ -89,7 +93,6 @@ function modalAskRepertoire(event)
   board = new boardElement(document.createElement("table"),[],"board","");
   board.htmlElement.setAttribute("class","modal--board");
   container.append(board.htmlElement);
-  if(document.querySelector(".modal--content").scrollHeight !== document.querySelector(".modal--content").clientHeight){console.log("overflows")} else{console.log("no overflow")}
   document.querySelector(".modal--board").style.setProperty("width", parseInt(getComputedStyle(document.querySelector(".modal--content")).width) * 0.62+"px");
   document.querySelector(".modal--board").style.setProperty("height", parseInt(getComputedStyle(document.querySelector(".modal--content")).width) * 0.62+"px");
   //a stands for abbreviation
