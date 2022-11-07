@@ -1,5 +1,4 @@
 Finish basic project
-  Add padding to the footer of the main
   Set squares as grid elements instead of flex
   Render board and pieces
   Add submit button to the input 
@@ -14,6 +13,6 @@ Add site-usage rules (TOS)
 Add responsiveness.
   Reduce width of footer--author-media
 Add accesibility.
-    Make sure colour means nothing and no slight contrasts are used
+    Make sure colour isn't used to express anything and no slight contrasts are used
 Add theme choice
 Add more pages
